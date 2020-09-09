@@ -3,9 +3,11 @@ package madeira.cs;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Arrays;
+import java.lang.Math;
 
 public class Week2 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         /*
             Problem I
             --------
@@ -25,8 +27,7 @@ public class Week2 {
                 a. Print on two separate lines
                 b. Not use the "println()" method
          */
-        System.out.print("Hello ");
-        System.out.print("World");
+        System.out.print("Hello \nWorld");
 
 
         /*
@@ -120,12 +121,22 @@ public class Week2 {
                 b. Use a mix of decimals and integers
                 c. Your result should be a decimal
          */
+        //num1
+        System.out.println("Enter a decimal: ");
+        double num1 = myScanner.nextDouble();
+        //num2
+        System.out.println("Enter an integer: ");
+        int num2 = myScanner.nextInt();
+        //num3
+        System.out.println("Enter another decimal: ");
+        double num3 = myScanner.nextDouble();
+        //arithmetic
+        double sum = num1 + num2 + num3;
+        double byTwo = sum / 2.0;
+        System.out.println("Your result is: " + byTwo);
 
-
-
-
-
-
+        //stops it from disrupting the next problem
+        myScanner.nextLine();
 
         /*
             Problem VIII
@@ -166,18 +177,15 @@ public class Week2 {
                 a. Print the content of the file
             Hints:
                 a. Create the file, write some stuff, save it to the same folder as your program
+
          */
-        try {
-            File myObj = new File("readme.txt");
-            Scanner myReader = new Scanner(myObj);
-            while (myReader.hasNextLine()) {
-                System.out.println(myReader.nextLine());
-            }
-            myReader.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
+
+        File myObj = new File("src/madeira/cs/readme.txt");
+        Scanner myReader = new Scanner(myObj);
+        while (myReader.hasNextLine()) {
+            System.out.println(myReader.nextLine());
         }
+        myReader.close();
 
 
         /*
@@ -190,12 +198,29 @@ public class Week2 {
             New number: 234567891011
          */
 
-
-
-
-
-
-
+        //read number
+        System.out.println("Enter a 10-digit number: ");
+        int original = myScanner.nextInt();
+        //divide into incremented digits
+        int[] digits = new int[10];
+        for (int m = 0; m < 10; m++) {
+            //m is int; a is double version of the same number just bc the .pow method needs a double
+            double a = m;
+            //divide by one more power of 10 each time, downcast the double to an int so the division rounds down, and modulo by ten to get each digit
+            //rip i wish java had a .split() equivalent
+            int temp = (original / ((int) Math.pow(10,a)) % 10);
+            //i didn't know how else to handle 9 so i made it a separate case with a temporary variable to hold it i'm sorry it's janky
+            if (temp == 9) {
+                digits[m] = 0;
+            } else {
+                digits[m] = temp + 1;
+            }
+        }
+        //the array is backwards so iterate through backwards and print them on the same line
+        int result = 0;
+        for (int m = 9; m >= 0; m--) {
+            System.out.print(digits[m]);
+        }
 
 
 
