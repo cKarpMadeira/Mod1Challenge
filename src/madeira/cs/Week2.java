@@ -2,6 +2,7 @@ package madeira.cs;
 
 import java.util.Scanner;
 import java.io.File;
+import java.io.FileNotFoundException;
 
 public class Week2 {
     public static void main(String[] args) {
@@ -106,6 +107,9 @@ public class Week2 {
         int newAge = currentAge + 5;
         System.out.println("In five years, you will be " + newAge);
 
+        //stops it from disrupting the next problem
+        myScanner.nextLine();
+
 
         /*
             Problem VII
@@ -163,13 +167,17 @@ public class Week2 {
             Hints:
                 a. Create the file, write some stuff, save it to the same folder as your program
          */
-
-
-
-
-
-
-
+        try {
+            File myObj = new File("readme.txt");
+            Scanner myReader = new Scanner(myObj);
+            while (myReader.hasNextLine()) {
+                System.out.println(myReader.nextLine());
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
 
 
         /*
