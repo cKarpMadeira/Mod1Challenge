@@ -5,7 +5,21 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.lang.Math;
+/*
 
+    Grade
+    =====
+    A+ 5/5 required points +5/0 extra credit
+
+    Comments
+    ========
+    This demonstrates complete understanding of control flow,
+    loops and basic Java data structures. You've done this both elegantly &
+    with accuracy. My only suggestion is to be wary of "edge cases". Think
+    of a user as clueless - might they enter something unexpected? Regardless,
+    excellent work.
+
+ */
 public class Week2 {
     public static void main(String[] args) throws FileNotFoundException {
         /*
@@ -129,11 +143,14 @@ public class Week2 {
         int num2 = myScanner.nextInt();
         //num3
         System.out.println("Enter another decimal: ");
+        // FIXME: Maybe consider edge cases here...what if user doesn't enter a double
         double num3 = myScanner.nextDouble();
         //arithmetic
         double sum = num1 + num2 + num3;
         double byTwo = sum / 2.0;
         System.out.println("Your result is: " + byTwo);
+
+        // FIXME: Probably worthwhile to notify user what operations you used.
 
         //stops it from disrupting the next problem
         myScanner.nextLine();
@@ -161,6 +178,7 @@ public class Week2 {
                 noBreak = false;
                 break;
             }
+            // FIXME: Prompt with an incorrect message here perhaps
             guessesLeft--;
         }
         //losing message
@@ -180,7 +198,7 @@ public class Week2 {
 
          */
 
-        File myObj = new File("src/madeira/cs/readme.txt");
+        File myObj = new File("/Users/pete/Desktop/ICSStudentWork/Karp/Mod1Challenge/src/madeira/cs/readme.txt");
         Scanner myReader = new Scanner(myObj);
         while (myReader.hasNextLine()) {
             System.out.println(myReader.nextLine());
@@ -202,6 +220,12 @@ public class Week2 {
         System.out.println("Enter a 10-digit number: ");
         int original = myScanner.nextInt();
         //divide into incremented digits
+        /*
+        FIXME: again, worthwhile to check for edge case of too large a number
+        FIXME: entering an 11 digit # will overflow the array
+         */
+
+
         int[] digits = new int[10];
         for (int m = 0; m < 10; m++) {
             //m is int; a is double version of the same number just bc the .pow method needs a double
