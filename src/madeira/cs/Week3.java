@@ -4,12 +4,18 @@ import java.util.Scanner;
 import java.util.Random;
 import java.lang.Math;
 
-public class Week3 {
 
+/*
+ * Grades and comments below.....
+ * 5/5 challenge +1 extra credit 
+ * This is truly excellent code. Very well organized, nothing you didn't need.
+*/
+public class Week3 {
+    // Love the use of methods here! Great object oriented programming!
     public static double getNumber(Scanner s) {
         System.out.println("Enter a number: ");
         //handles bad cases
-        while (!s.hasNextInt() && !s.hasNextDouble()) {
+        while (!s.hasNextInt() && !s.hasNextDouble()) { // excellent, concise handling of edge cases
             s.next();
             System.out.println("Invalid entry, try again");
         }
@@ -63,14 +69,14 @@ public class Week3 {
 
         Random rand = new Random();
         //generate a random number between 0 and 25
-        int number = rand.nextInt(25);
+        int number = rand.nextInt(25); // o u fancy, huh?
         int guessesLeft = 10;
         System.out.println("I've picked a random number between 0 and 25. Try to guess it!");
 
         while (guessesLeft > 0) {
             //get guess
             System.out.println("You have "+guessesLeft+" guesses left!");
-            int guess = (int) getNumber(scanner);
+            int guess = (int) getNumber(scanner); // loving this code re-use!
             //if else logic
             if (guess == number) {
                 //if correct guess
@@ -82,7 +88,7 @@ public class Week3 {
                 if (guessesLeft == 0) {
                     System.out.println("You've lost! The number was: "+number);
                     //roast user unfairly
-                    System.out.println("rest in pieces, defeated by a cringe number guessing game :(");
+                    System.out.println("rest in pieces, defeated by a cringe number guessing game :("); // incorrect, number guessing games are the pinnacle of academia
                     break;
                 } else System.out.println("Nope! Try again.");
             }
@@ -108,7 +114,7 @@ public class Week3 {
             for (int j = i; j > 0; j--) {
                 asterix += "*";
             }
-            System.out.println(asterix);
+            System.out.println(asterix); // interesting solution, wasn't thinking of adding characters but this works
         }
 
         /*
@@ -163,7 +169,9 @@ public class Week3 {
         */
 
         //generate a random number between 0 and 25 (reassign variables from earlier)
-        number = rand.nextInt(25);
+        
+	// You a star! This is really great stuff.
+	number = rand.nextInt(25);
         guessesLeft = 10;
         System.out.println("I've picked a random number between 0 and 25. Try to guess it!");
 
