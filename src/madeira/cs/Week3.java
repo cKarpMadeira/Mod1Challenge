@@ -7,10 +7,9 @@ import java.lang.Math;
 
 /*
  * Grades and comments below.....
- * 5/5 challenge +1 extra credit 
- * This is truly excellent code. Very well organized, nothing you didn't need.
-*/
-public class Week3 {
+ * 5/5 challenge +1 extra credit
+ */
+
     // Love the use of methods here! Great object oriented programming!
     public static double getNumber(Scanner s) {
         System.out.println("Enter a number: ");
